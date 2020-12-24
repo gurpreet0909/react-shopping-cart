@@ -12,6 +12,9 @@
 /build
 
 .vscode
+package-lock.json
+.eslintcache
+
 # misc
 .DS_Store
 .env.local
