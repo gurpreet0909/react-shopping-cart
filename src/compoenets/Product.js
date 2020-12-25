@@ -3,14 +3,20 @@ import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import Modal from "react-modal";
+import { connect } from 'react-redux';
+import {fetchProducts} from '../actions/productActions';
 
-export default class Product extends Component {
+class Product extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             product: null,
         };
+    }
+
+    componentDidMount() {
+        this.props.fetchProducts();
     }
 
     openModal = (product) => {
@@ -84,3 +90,6 @@ export default class Product extends Component {
         )
     }
 }
+
+export default connect((state)=>({products: state.products.items}),
+ {fetchProducts})(Product)
