@@ -33,8 +33,8 @@ class Product extends Component {
             <div>
                 <Fade bottom cascade>
                 {
-                    !this.props.products ? <div>Loading...</div> :
-                    <ul className="products">
+                    !this.props.products ? (<div>Loading...</div>) :
+                    (<ul className="products">
                         {this.props.products.map(product => (
                             <li key={product._id}>
                                 <div className="product">
@@ -52,7 +52,7 @@ class Product extends Component {
                                 </div>
                             </li>
                         ))}
-                    </ul>
+                    </ul>)
                 }
                     
                 </Fade>
