@@ -32,6 +32,8 @@ class Product extends Component {
         return (
             <div>
                 <Fade bottom cascade>
+                {
+                    !this.props.products ? <div>Loading...</div> :
                     <ul className="products">
                         {this.props.products.map(product => (
                             <li key={product._id}>
@@ -51,6 +53,8 @@ class Product extends Component {
                             </li>
                         ))}
                     </ul>
+                }
+                    
                 </Fade>
                 {product && <Modal isOpen={true} onRequestClose={this.closeModal}>
                     <Zoom>
